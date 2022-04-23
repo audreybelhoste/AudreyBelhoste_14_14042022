@@ -9,36 +9,43 @@ const Table = () => {
 			name: 'First Name',
 			selector: row => row.firstname,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'Last Name',
 			selector: row => row.lastname,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'Start Date',
 			selector: row => row.startDate,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'Departement',
 			selector: row => row.department,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'Date Of Birth',
 			selector: row => row.dateOfBirth,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'Street',
 			selector: row => row.street,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'City',
 			selector: row => row.city,
 			sortable: true,
+			wrap: true,
 		},
 		{
 			name: 'State',
@@ -49,6 +56,7 @@ const Table = () => {
 			name: 'Zip Code',
 			selector: row => row.zipCode,
 			sortable: true,
+			wrap: true,
 		},
 	];
 
@@ -61,7 +69,7 @@ const Table = () => {
 	};
 
 	const filteredEmployees = employees.filter(
-		item => item.firstname && item.firstname.toLowerCase().includes(filterText.toLowerCase()),
+		item => (item.firstname && item.firstname.toLowerCase().includes(filterText.toLowerCase())) || (item.lastname && item.lastname.toLowerCase().includes(filterText.toLowerCase()))
 	)
 
 	return (

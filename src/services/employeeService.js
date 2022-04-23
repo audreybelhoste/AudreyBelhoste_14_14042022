@@ -18,7 +18,8 @@ export const createEmployee = (employeeData) => {
 export const formatEmployees = (employees) => {
 	return employees.map(employee => ({
         ...employee, 
-        dateOfBirth : employee.dateOfBirth
+        dateOfBirth : new Date(employee.dateOfBirth).toLocaleDateString("en"),
+        startDate : new Date(employee.startDate).toLocaleDateString("en"),
     }))
 }
 
