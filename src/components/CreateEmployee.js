@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { states } from "../utils/states";
 import Select from 'react-select'
+import Modal from "./modal/Modal";
 
 const CreateEmployee = () => {
 	const [employee, setEmployee] = useState({
@@ -17,6 +18,8 @@ const CreateEmployee = () => {
 		zipCode: "",
 		department: "",
 	});
+
+	const [isOpened, setIsOpened] = useState(false);
 
 	const handleInputChange = (e) => {
 		console.log(e)
@@ -115,9 +118,16 @@ const CreateEmployee = () => {
                     <option>Legal</option>
                 </select>
 			</label>
-			<button type="submit">
+			<button onClick={() => setIsOpened(true)} type="submit">
 				Save
 			</button>
+			<Modal
+				isOpened={isOpened}
+				isClosable={true}
+				onClose={() => setIsOpened(false)}
+			>
+				<p>Coucou</p>
+			</Modal>
 		</form>
 	)
 }
