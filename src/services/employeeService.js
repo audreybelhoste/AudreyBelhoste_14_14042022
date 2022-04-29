@@ -18,12 +18,16 @@ export const createEmployee = (employeeData) => {
 export const formatEmployees = (employees) => {
 	return employees.map(employee => ({
         ...employee, 
-        dateOfBirth : new Date(employee.dateOfBirth).toLocaleDateString("en"),
-        startDate : new Date(employee.startDate).toLocaleDateString("en"),
+        dateOfBirth : formatDate(employee.dateOfBirth),
+        startDate : formatDate(employee.startDate),
     }))
 }
 
 export const getEmployees = () => {
 	const employees = JSON.parse(localStorage.getItem('employees')) || [];
 	return formatEmployees(employees);
+}
+
+const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en");
 }
