@@ -5,7 +5,7 @@ export const createEmployee = (employeeData) => {
         lastname: employeeData.lastname,
         dateOfBirth: employeeData.dateOfBirth,
         startDate: employeeData.startDate,
-        department: employeeData.department,
+        department: employeeData.department.label,
         street: employeeData.street,
         city: employeeData.city,
         state: employeeData.state.label,

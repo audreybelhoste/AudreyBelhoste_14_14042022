@@ -5,6 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { states } from "../utils/states";
 import Select from 'react-select'
 import Modal from "./modal/Modal";
+import Input from "./Input";
+import { departments } from "../utils/departments";
 
 const CreateEmployee = () => {
 	const [employee, setEmployee] = useState({
@@ -22,7 +24,6 @@ const CreateEmployee = () => {
 	const [isOpened, setIsOpened] = useState(false);
 
 	const handleInputChange = (e) => {
-		console.log(e)
 		setEmployee({
 			...employee,
 			[e.target.name]: e.target.value,
@@ -31,12 +32,12 @@ const CreateEmployee = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// createEmployee(employee);
+		createEmployee(employee);
 	};
 
 	return(
 		<form onSubmit={handleSubmit}>
-			<label>
+			{/* <label>
 				First Name
 				<input
 					type="text"
@@ -44,7 +45,14 @@ const CreateEmployee = () => {
 					value={employee.firstname}
 					onChange={handleInputChange}
 				/>
-			</label>
+			</label> */}
+			<Input 
+				label="First Name"
+				type="text"
+				name="firstname"
+				value={employee.firstname}
+				handleInputChange={handleInputChange}
+			/>
 			<label>
 				Last Name
 				<input
@@ -108,21 +116,16 @@ const CreateEmployee = () => {
 					/>
 				</label>
 			</fieldset>
-			<label>Department
-                <select name="department" value={employee.department} onChange={handleInputChange}>
-                    <option>Sales</option>
-                    <option>Marketing</option>
-                    <option>Engineering</option>
-                    <option>Human Resources</option>
-                    <option>Legal</option>
-                </select>
+			<label>
+				Department
+				<Select name="department" options={departments} value={employee.department} onChange={(department) => setEmployee({ ...employee, department:department})}/>
 			</label>
 			<button onClick={() => setIsOpened(true)} type="submit">
 				Save
 			</button>
 			<Modal
 				isOpened={isOpened}
-				isClosable={true}
+				isClosable
 				onClose={() => setIsOpened(false)}
 			>
 				<p>Employee Created!</p>
