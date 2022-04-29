@@ -30,9 +30,8 @@ const CreateEmployee = () => {
 	};
 
 	const handleSubmit = (e) => {
-		console.log(employee)
 		e.preventDefault();
-		createEmployee(employee);
+		// createEmployee(employee);
 	};
 
 	return(
@@ -126,7 +125,7 @@ const CreateEmployee = () => {
 				isClosable={true}
 				onClose={() => setIsOpened(false)}
 			>
-				<p>Coucou</p>
+				<p>Employee Created!</p>
 			</Modal>
 		</form>
 	)

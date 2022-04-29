@@ -1,12 +1,19 @@
-const Modal = ({ children, isOpened, onClose, isClosable, style }) => {
+import './Modal.css';
 
+const Modal = ({ children, isOpened, onClose, isClosable, style }) => {
 
     return (
 		isOpened && (
-			<div>
-				{isClosable && <p onClick={onClose}>Fermer</p>}
-				<div style={style}>
-					{ children }
+			<div class="modal">
+				<div class="modal-content" style={style}>
+					{isClosable && 
+						<button class="modal-close" onClick={onClose}>
+							<span class="modal-sr-only">Close</span>
+						</button>
+					}
+					<div>
+						{ children }
+					</div>
 				</div>
 			</div>
 		)
