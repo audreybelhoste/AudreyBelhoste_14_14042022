@@ -1,7 +1,8 @@
+import propTypes from 'prop-types'
 import { useEffect } from 'react';
 import './Modal.css';
 
-const Modal = ({ children, isOpened, onClose, isClosable, style }) => {
+const Modal = ({ children, isOpened, onClose, style }) => {
 	useEffect(() => {
 		function handleEscapeKey(e) {
 			if (e.code === 'Escape') {
@@ -21,11 +22,9 @@ const Modal = ({ children, isOpened, onClose, isClosable, style }) => {
 					style={style} onClick={e => {
           			e.stopPropagation();
         		}}>
-					{isClosable && 
-						<button className="modal-close" onClick={onClose}>
-							<span className="modal-sr-only">Close</span>
-						</button>
-					}
+					<button className="modal-close" onClick={onClose}>
+						<span className="modal-sr-only">Close</span>
+					</button>
 					<div>
 						{ children }
 					</div>
@@ -34,5 +33,11 @@ const Modal = ({ children, isOpened, onClose, isClosable, style }) => {
 		)
     );
 };
+
+Modal.propTypes = {
+	children: propTypes.string, 
+	isOpened: propTypes.bool, 
+
+}
 
 export default Modal

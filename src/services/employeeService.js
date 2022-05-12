@@ -1,5 +1,7 @@
+const employees = [];
+
 export const createEmployee = (employeeData) => {
-	const employees = JSON.parse(localStorage.getItem('employees')) || [];
+	// const employees = JSON.parse(localStorage.getItem('employees')) || [];
     const employee = {
         firstname: employeeData.firstname,
         lastname: employeeData.lastname,
@@ -24,7 +26,7 @@ export const formatEmployees = (employees) => {
 }
 
 export const getEmployees = () => {
-	const employees = JSON.parse(localStorage.getItem('employees')) || [];
+	//  = JSON.parse(localStorage.getItem('employees')) || [];
 	return formatEmployees(employees);
 }
 

@@ -1,12 +1,14 @@
 const Filter = ({handleFilterChange, filterText}) => {
 	return (
 		<div>
-			<input
-				type="text"
-				name="filter"
-				value={filterText}
-				onChange={handleFilterChange}
-			/>
+			<label>Search: 
+				<input
+					type="text"
+					name="filter"
+					value={filterText}
+					onChange={handleFilterChange}
+				/>
+			</label>
 		</div>
 	);	
 }

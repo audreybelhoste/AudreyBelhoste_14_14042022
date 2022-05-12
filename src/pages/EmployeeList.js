@@ -7,8 +7,9 @@ const EmployeeList = () => {
 	return (
 		<div>
 			<div className="container">
-				<Link to="/">Home</Link>
+				<h1>Current Employees</h1>
 				<Table />
+				<Link to="/">Home</Link>
 			</div>
 		</div>
 	)

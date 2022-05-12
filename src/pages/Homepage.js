@@ -10,6 +10,7 @@ const Homepage = () => {
 			</div>
 			<div className="container">
 				<Link to="employee-list">View Current Employees</Link>
+				<h2>Create Employee</h2>
 				<CreateEmployee />
 			</div>
 		</div>

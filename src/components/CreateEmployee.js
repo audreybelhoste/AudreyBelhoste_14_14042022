@@ -4,8 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { states } from "../utils/states";
 import Select from 'react-select'
-import Modal from "./modal/Modal";
-import Input from "./Input";
+import Modal from 'simple-modal-component-ab';
 import { departments } from "../utils/departments";
 
 const CreateEmployee = () => {
@@ -33,94 +32,110 @@ const CreateEmployee = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		createEmployee(employee);
+		setIsOpened(true);
 	};
 
-	return(
+	return(	
 		<form onSubmit={handleSubmit}>
-			{/* <label>
+			<label for="firstname">
 				First Name
-				<input
-					type="text"
-					name="firstname"
-					value={employee.firstname}
-					onChange={handleInputChange}
-				/>
-			</label> */}
-			<Input 
-				label="First Name"
+			</label>
+			<input
 				type="text"
 				name="firstname"
+				id="firstname"
+				required="true"
 				value={employee.firstname}
-				handleInputChange={handleInputChange}
+				onChange={handleInputChange}
 			/>
-			<label>
+			
+			<label for="lastname">
 				Last Name
-				<input
-					type="text"
-					name="lastname"
-					value={employee.lastname}
-					onChange={handleInputChange}
-				/>
-			</label>			
-			<label>
+			</label>
+			<input
+				type="text"
+				name="lastname"
+				id="lastname"
+				required="true"
+				value={employee.lastname}
+				onChange={handleInputChange}
+			/>
+						
+			<label for="dateOfBirth">
 				Date of Birth
-				<DatePicker 
-					selected={employee.dateOfBirth} 
-					onChange={(date) => setEmployee({ ...employee, dateOfBirth:date})}
-					showMonthDropdown
-					showYearDropdown
-					dropdownMode="select"
-				/>
 			</label>
-			<label>
+			<DatePicker 
+				selected={employee.dateOfBirth} 
+				id="dateOfBirth"
+				required="true"
+				onChange={(date) => setEmployee({ ...employee, dateOfBirth:date})}
+				showMonthDropdown
+				showYearDropdown
+				dropdownMode="select"
+			/>
+			
+			<label for="startDate">
 				Start Date
-				<DatePicker 
-					selected={employee.startDate} 
-					onChange={(date) => setEmployee({ ...employee, startDate:date})}       
-					showMonthDropdown
-					showYearDropdown
-					dropdownMode="select"
-				/>
 			</label>
+			<DatePicker 
+				selected={employee.startDate} 
+				id="startDate"
+				required="true"
+				onChange={(date) => setEmployee({ ...employee, startDate:date})}       
+				showMonthDropdown
+				showYearDropdown
+				dropdownMode="select"
+			/>
+			
 			<fieldset className="address">
 				<legend>Address</legend>
-				<label>
+				<label for="street">
 					Street
-					<input
-						type="text"
-						name="street"
-						value={employee.street}
-						onChange={handleInputChange}
-					/>
 				</label>
-				<label>
+				<input
+					type="text"
+					name="street"
+					id="street"
+					required="true"
+					value={employee.street}
+					onChange={handleInputChange}
+				/>
+				
+				<label for="city">
 					City
-					<input
-						type="text"
-						name="city"
-						value={employee.city}
-						onChange={handleInputChange}
-					/>
 				</label>
-				<label>
+				<input
+					type="text"
+					name="city"
+					id="city"
+					required="true"
+					value={employee.city}
+					onChange={handleInputChange}
+				/>
+				
+				<label for="state">
 					State
-					<Select name="state" options={states} value={employee.state} onChange={(state) => setEmployee({ ...employee, state:state})}/>
 				</label>
-				<label>
+				<Select name="state" id="state" required="true" options={states} value={employee.state} onChange={(state) => setEmployee({ ...employee, state:state})}/>
+				
+				<label for="zipCode">
 					Zip Code
+				</label>
 					<input
 						type="number"
 						name="zipCode"
+						required="true"
+						id="zipCode"
 						value={employee.zipCode}
 						onChange={handleInputChange}
 					/>
-				</label>
 			</fieldset>
-			<label>
+			<label for="department">
 				Department
-				<Select name="department" options={departments} value={employee.department} onChange={(department) => setEmployee({ ...employee, department:department})}/>
 			</label>
-			<button onClick={() => setIsOpened(true)} type="submit">
+			<Select name="department" id="department" required="true" options={departments} value={employee.department} onChange={(department) => setEmployee({ ...employee, department:department})}/>
+			
+			<button type="submit">
 				Save
 			</button>
 			<Modal

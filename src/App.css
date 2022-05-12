@@ -4,7 +4,6 @@
   justify-content: center;
 }
 
-
 .container {
   display: flex;
   flex-direction: column;
@@ -20,4 +19,9 @@ label {
 
 .address {
   margin-top: 10px;
+}
+ 
+button{
+  display: block;
+  margin: 20px auto;
 }
