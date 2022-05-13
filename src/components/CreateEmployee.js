@@ -1,10 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { EmployeeContext } from "../context";
 import { createEmployee } from "../services/employeeService";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import { states } from "../utils/states";
-import Select from 'react-select'
-import Modal from 'simple-modal-component-ab';
+import Select from 'react-select';
+import { Modal } from 'simple-modal-component-ab';
 import { departments } from "../utils/departments";
 
 const CreateEmployee = () => {
@@ -20,6 +21,8 @@ const CreateEmployee = () => {
 		department: "",
 	});
 
+	const context = React.useContext(EmployeeContext);
+
 	const [isOpened, setIsOpened] = useState(false);
 
 	const handleInputChange = (e) => {
@@ -31,7 +34,7 @@ const CreateEmployee = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		createEmployee(employee);
+		createEmployee(employee, context);
 		setIsOpened(true);
 	};
 
@@ -64,7 +67,7 @@ const CreateEmployee = () => {
 			<label for="dateOfBirth">
 				Date of Birth
 			</label>
-			<DatePicker 
+			{/* <DatePicker 
 				selected={employee.dateOfBirth} 
 				id="dateOfBirth"
 				required="true"
@@ -72,12 +75,12 @@ const CreateEmployee = () => {
 				showMonthDropdown
 				showYearDropdown
 				dropdownMode="select"
-			/>
+			/> */}
 			
 			<label for="startDate">
 				Start Date
 			</label>
-			<DatePicker 
+			{/* <DatePicker 
 				selected={employee.startDate} 
 				id="startDate"
 				required="true"
@@ -85,7 +88,7 @@ const CreateEmployee = () => {
 				showMonthDropdown
 				showYearDropdown
 				dropdownMode="select"
-			/>
+			/> */}
 			
 			<fieldset className="address">
 				<legend>Address</legend>
@@ -96,7 +99,6 @@ const CreateEmployee = () => {
 					type="text"
 					name="street"
 					id="street"
-					required="true"
 					value={employee.street}
 					onChange={handleInputChange}
 				/>
@@ -108,7 +110,6 @@ const CreateEmployee = () => {
 					type="text"
 					name="city"
 					id="city"
-					required="true"
 					value={employee.city}
 					onChange={handleInputChange}
 				/>
@@ -124,7 +125,6 @@ const CreateEmployee = () => {
 					<input
 						type="number"
 						name="zipCode"
-						required="true"
 						id="zipCode"
 						value={employee.zipCode}
 						onChange={handleInputChange}

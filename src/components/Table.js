@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { EmployeeContext } from "../context";
 import DataTable from "react-data-table-component";
-import { getEmployees } from "../services/employeeService";
 import Filter from "./Filter";
 
 const Table = () => {
@@ -60,7 +60,8 @@ const Table = () => {
 		},
 	];
 
-	const employees = getEmployees();
+	const context = React.useContext(EmployeeContext);
+	const employees = context.employees;
 
 	const [filterText, setFilterText] = useState('');
 
