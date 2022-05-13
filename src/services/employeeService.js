@@ -2,8 +2,8 @@ export const createEmployee = (employeeData, context) => {
     const employee = {
         firstname: employeeData.firstname,
         lastname: employeeData.lastname,
-        // dateOfBirth: employeeData.dateOfBirth,
-        // startDate: employeeData.startDate,
+        dateOfBirth: employeeData.dateOfBirth,
+        startDate: employeeData.startDate,
         department: employeeData.department.label,
         street: employeeData.street,
         city: employeeData.city,
@@ -12,6 +12,4 @@ export const createEmployee = (employeeData, context) => {
     };
 
     context.addEmployee(employee);
-
-    console.log(context.addEmployee);
 }

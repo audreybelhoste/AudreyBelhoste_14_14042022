@@ -9,7 +9,7 @@ const EmployeeContextProvider = ({ children }) => {
     const addEmployee = (newEmployee) => {
         setEmployees([
             ...employees,
-            newEmployee
+            formatEmployee(newEmployee)
         ]);
     };
 
@@ -22,12 +22,11 @@ const EmployeeContextProvider = ({ children }) => {
     );
 };
 
-export const formatEmployees = (employees) => {
-	return employees.map(employee => ({
-        ...employee, 
-        dateOfBirth : formatDate(employee.dateOfBirth),
-        startDate : formatDate(employee.startDate),
-    }))
+export const formatEmployee = (employee) => {
+    employee.dateOfBirth = formatDate(employee.dateOfBirth);
+    employee.startDate = formatDate(employee.startDate);
+
+    return employee;
 }
 
 const formatDate = (date) => {

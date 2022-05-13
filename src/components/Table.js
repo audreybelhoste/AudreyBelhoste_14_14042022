@@ -63,6 +63,8 @@ const Table = () => {
 	const context = React.useContext(EmployeeContext);
 	const employees = context.employees;
 
+	console.log(employees);
+
 	const [filterText, setFilterText] = useState('');
 
 	const handleFilterChange = (e) => {

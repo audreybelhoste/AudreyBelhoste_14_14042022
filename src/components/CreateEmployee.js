@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { EmployeeContext } from "../context";
 import { createEmployee } from "../services/employeeService";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 import { states } from "../utils/states";
 import Select from 'react-select';
 import { Modal } from 'simple-modal-component-ab';
 import { departments } from "../utils/departments";
+// import DatePicker from 'react-date-picker';
 
 const CreateEmployee = () => {
 	const [employee, setEmployee] = useState({
@@ -70,11 +69,7 @@ const CreateEmployee = () => {
 			{/* <DatePicker 
 				selected={employee.dateOfBirth} 
 				id="dateOfBirth"
-				required="true"
 				onChange={(date) => setEmployee({ ...employee, dateOfBirth:date})}
-				showMonthDropdown
-				showYearDropdown
-				dropdownMode="select"
 			/> */}
 			
 			<label for="startDate">
