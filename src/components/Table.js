@@ -63,8 +63,6 @@ const Table = () => {
 	const context = React.useContext(EmployeeContext);
 	const employees = context.employees;
 
-	console.log(employees);
-
 	const [filterText, setFilterText] = useState('');
 
 	const handleFilterChange = (e) => {
@@ -77,10 +75,12 @@ const Table = () => {
 
 	return (
 		<div>
-			<Filter
-				handleFilterChange={handleFilterChange}
-				filterText={filterText}
-			/>
+			{ filteredEmployees.length > 0 && 
+				<Filter
+					handleFilterChange={handleFilterChange}
+					filterText={filterText}
+				/>
+			}
 			<DataTable
 				columns={columns}
 				data={filteredEmployees}
