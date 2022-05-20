@@ -75,7 +75,7 @@ const Table = () => {
 
 	return (
 		<div>
-			{ filteredEmployees.length > 0 && 
+			{ employees.length > 0 && 
 				<Filter
 					handleFilterChange={handleFilterChange}
 					filterText={filterText}

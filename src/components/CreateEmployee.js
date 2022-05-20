@@ -41,50 +41,48 @@ const CreateEmployee = () => {
 
 	return(	
 		<form onSubmit={handleSubmit}>
-			<label for="firstname">
+			<label htmlFor="firstname">
 				First Name
 			</label>
 			<input
 				type="text"
 				name="firstname"
 				id="firstname"
-				required="true"
+				required={true}
 				value={employee.firstname}
 				onChange={handleInputChange}
 			/>
 			
-			<label for="lastname">
+			<label htmlFor="lastname">
 				Last Name
 			</label>
 			<input
 				type="text"
 				name="lastname"
 				id="lastname"
-				required="true"
+				required={true}
 				value={employee.lastname}
 				onChange={handleInputChange}
 			/>
 						
-			<label for="dateOfBirth">
+			<label htmlFor="dateOfBirth">
 				Date of Birth
 			</label>
 			<DatePicker 
 				selected={employee.dateOfBirth} 
 				id="dateOfBirth"
-				required="true"
 				onChange={(date) => setEmployee({ ...employee, dateOfBirth:date})}
 				showMonthDropdown
 				showYearDropdown
 				dropdownMode="select"
 			/>
 			
-			<label for="startDate">
+			<label htmlFor="startDate">
 				Start Date
 			</label>
 			<DatePicker 
 				selected={employee.startDate} 
 				id="startDate"
-				required="true"
 				onChange={(date) => setEmployee({ ...employee, startDate:date})}       
 				showMonthDropdown
 				showYearDropdown
@@ -93,7 +91,7 @@ const CreateEmployee = () => {
 			
 			<fieldset className="address">
 				<legend>Address</legend>
-				<label for="street">
+				<label htmlFor="street">
 					Street
 				</label>
 				<input
@@ -104,7 +102,7 @@ const CreateEmployee = () => {
 					onChange={handleInputChange}
 				/>
 				
-				<label for="city">
+				<label htmlFor="city">
 					City
 				</label>
 				<input
@@ -115,12 +113,12 @@ const CreateEmployee = () => {
 					onChange={handleInputChange}
 				/>
 				
-				<label for="state">
+				<label htmlFor="state">
 					State
 				</label>
-				<Select name="state" id="state" required="true" options={states} value={employee.state} onChange={(state) => setEmployee({ ...employee, state:state})}/>
+				<Select name="state" id="state" options={states} value={employee.state} onChange={(state) => setEmployee({ ...employee, state:state})}/>
 				
-				<label for="zipCode">
+				<label htmlFor="zipCode">
 					Zip Code
 				</label>
 					<input
@@ -131,10 +129,10 @@ const CreateEmployee = () => {
 						onChange={handleInputChange}
 					/>
 			</fieldset>
-			<label for="department">
+			<label htmlFor="department">
 				Department
 			</label>
-			<Select name="department" id="department" required="true" options={departments} value={employee.department} onChange={(department) => setEmployee({ ...employee, department:department})}/>
+			<Select name="department" id="department" options={departments} value={employee.department} onChange={(department) => setEmployee({ ...employee, department:department})}/>
 			
 			<button type="submit">
 				Save
