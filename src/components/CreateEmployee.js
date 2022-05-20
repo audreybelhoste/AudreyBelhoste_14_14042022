@@ -5,7 +5,9 @@ import { states } from "../utils/states";
 import Select from 'react-select';
 import { Modal } from 'simple-modal-component-ab';
 import { departments } from "../utils/departments";
-// import DatePicker from 'react-date-picker';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const CreateEmployee = () => {
 	const [employee, setEmployee] = useState({
@@ -66,16 +68,20 @@ const CreateEmployee = () => {
 			<label for="dateOfBirth">
 				Date of Birth
 			</label>
-			{/* <DatePicker 
+			<DatePicker 
 				selected={employee.dateOfBirth} 
 				id="dateOfBirth"
+				required="true"
 				onChange={(date) => setEmployee({ ...employee, dateOfBirth:date})}
-			/> */}
+				showMonthDropdown
+				showYearDropdown
+				dropdownMode="select"
+			/>
 			
 			<label for="startDate">
 				Start Date
 			</label>
-			{/* <DatePicker 
+			<DatePicker 
 				selected={employee.startDate} 
 				id="startDate"
 				required="true"
@@ -83,7 +89,7 @@ const CreateEmployee = () => {
 				showMonthDropdown
 				showYearDropdown
 				dropdownMode="select"
-			/> */}
+			/>
 			
 			<fieldset className="address">
 				<legend>Address</legend>
